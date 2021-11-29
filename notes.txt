@@ -1,0 +1,45 @@
+int num {10};
+&num will return the address of the variable //i.e. 0x61ff1c
+
+int *p;
+p will be garbage if not initialized //i.e.61ff60
+&p address of pointer p. node & is the address operator
+
+p = nullptr; // set p to point nowhere
+p will be equal to 0
+a pointer regardless of type, will always have a size of 4 bytes
+
+int score {100};
+int *score_ptr {&score};
+
+*score_ptr = 200; // dereferencing score pointer, set score value to 200
+cout << *score_ptr << endl; // 200
+cout << score << endl; // will be 200
+
+int scores[] {100,65,89,-1};
+// loop with pointers
+int *score_ptr {scores};
+while(*score_ptr!=-1){
+  cout << *score_ptr << endl;
+  score_ptr++;
+//cout << *score_ptr++ <<endl;
+}
+
+void double_data(int* int_ptr){
+  *int_ptr *=2;
+}
+//to call:
+double_data(&value);
+//or:
+int *ptr {&value};
+double_data(ptr);
+
+const pointer and const object for safety:
+void print_data(const int *const ptr){
+  cout << *ptr
+//*ptr = 1 not allowed because const int
+// ptr = nullptr not allowed because *const ptr
+}
+
+//func return pointer:
+type *func_name(){}
